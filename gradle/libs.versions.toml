@@ -13,6 +13,10 @@ androidx-test-junit = "1.1.5"
 compose-plugin = "1.6.10"
 junit = "4.13.2"
 kotlin = "2.0.0"
+voyager = "1.0.0"
+okio = "3.2.0"
+coroutines-ui = "1.8.1"
+splitties = "3.0.0"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -25,6 +29,12 @@ androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version
 androidx-material = { group = "com.google.android.material", name = "material", version.ref = "androidx-material" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "androidx-constraintlayout" }
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
+voyager-navigator = { group="cafe.adriel.voyager", name="voyager-navigator", version.ref = "voyager" }
+voyager-screen-model = { group="cafe.adriel.voyager", name="voyager-screenmodel", version.ref = "voyager" }
+okio = {group = "com.squareup.okio", name ="okio", version.ref = "okio"}
+coroutines-swing = {group = "org.jetbrains.kotlinx", name="kotlinx-coroutines-swing", version.ref="coroutines-ui"}
+coroutines-android = {group = "org.jetbrains.kotlinx", name="kotlinx-coroutines-android", version.ref="coroutines-ui"}
+splitties-app-ctx = {group ="com.louiscad.splitties", name="splitties-appctx", version.ref="splitties"}
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

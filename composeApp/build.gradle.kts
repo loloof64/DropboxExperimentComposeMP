@@ -25,6 +25,8 @@ kotlin {
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
+            implementation(libs.coroutines.android)
+            implementation(libs.splitties.app.ctx)
         }
         commonMain.dependencies {
             implementation(compose.runtime)
@@ -33,9 +35,13 @@ kotlin {
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
+            implementation(libs.voyager.navigator)
+            implementation(libs.voyager.screen.model)
+            implementation(libs.okio)
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
+            implementation(libs.coroutines.swing)
         }
     }
 }

@@ -1,0 +1,34 @@
+<resources>
+    <string name="no">No</string>
+    <string name="yes">Sí</string>
+    <string name="file">Archivo</string>
+    <string name="folder">Carpeta</string>
+    <string name="file_item_icon">Icono de archivo o carpeta</string>
+    <string name="add_item">Añadir un elemento</string>
+    <string name="new_file">Nuevo archivo</string>
+    <string name="new_folder">Nueva carpeta</string>
+    <string name="new_file_name">Nombre del archivo</string>
+    <string name="new_folder_name">Nombre de la carpeta</string>
+    <string name="cancel">Anular</string>
+    <string name="validate">Validar</string>
+    <string name="failed_creating_folder">¡Error al crear la carpeta!</string>
+    <string name="failed_creating_file">¡Error al crear el archivo!</string>
+    <string name="overwrite_file_message">¿Sobrescribir el archivo "%1$s"?</string>
+    <string name="overwrite_folder_message">¿Sobrescribir la carpeta "%1$s" y eliminar su contenido?</string>
+    <string name="delete_item">Borrar</string>
+    <string name="delete_folder_confirmation_message">¿Estás seguro de que quieres eliminar la carpeta "%1$s"?</string>
+    <string name="delete_file_confirmation_message">¿Estás seguro de que quieres eliminar el archivo "%1$s"?</string>
+    <string name="delete_icon">Icono de eleminar el elemento</string>
+    <string name="failed_deleting_folder">¡No se pudo eliminar la carpeta!</string>
+    <string name="failed_deleting_file">¡No se pudo eliminar el archivo!</string>
+    <string name="compress_item">Comprimir aquí</string>
+    <string name="compress_icon">Ícono de comprimir elemento</string>
+    <string name="extract_item">Extraer elemento</string>
+    <string name="extract_icon">Ícono de extraer elemento</string>
+    <string name="failed_compressing_item">¡No se pudo comprimir el elemento!</string>
+    <string name="failed_extracting_item">¡No se pudo extraer el elemento!</string>
+    <string name="reload">Recargar</string>
+    <string name="not_available">No disponible aún</string>
+    <string name="local_filesystem">Archivos locales</string>
+    <string name="dropbox_filesystem">Dropbox</string>
+</resources>
