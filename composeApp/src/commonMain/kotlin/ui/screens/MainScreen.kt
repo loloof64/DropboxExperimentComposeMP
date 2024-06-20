@@ -1,5 +1,7 @@
 package ui.screens
 
+import Dropbox
+import Pc
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
@@ -15,10 +17,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.core.model.rememberScreenModel
 import cafe.adriel.voyager.core.screen.Screen
-import dropboxexperiment.composeapp.generated.resources.Res
-import dropboxexperiment.composeapp.generated.resources.dropbox_filesystem
-import dropboxexperiment.composeapp.generated.resources.local_filesystem
-import dropboxexperiment.composeapp.generated.resources.reload
+import dropboxexperiment.composeapp.generated.resources.*
 import models.FileItem
 import org.jetbrains.compose.resources.stringResource
 import ui.composables.FileExplorer
@@ -46,6 +45,8 @@ class MainScreen : Screen {
                 ) {
                     ExplorerActionsBar(
                         modifier = Modifier.height(45.dp),
+                        leadingIcon = Pc,
+                        leadingIconDescription = stringResource(Res.string.local_filesystem_icon),
                         title = stringResource(Res.string.local_filesystem),
                         backgroundColor = MaterialTheme.colors.primary,
                         textColor = MaterialTheme.colors.onPrimary,
@@ -64,6 +65,8 @@ class MainScreen : Screen {
                 ) {
                     ExplorerActionsBar(
                         modifier = Modifier.height(45.dp),
+                        leadingIcon = Dropbox,
+                        leadingIconDescription = stringResource(Res.string.dropbox_filesystem_icon),
                         title = stringResource(Res.string.dropbox_filesystem),
                         backgroundColor = MaterialTheme.colors.secondary,
                         textColor = MaterialTheme.colors.onSecondary
@@ -122,6 +125,8 @@ private fun DropboxExplorer(
 @Composable
 private fun ExplorerActionsBar(
     modifier: Modifier = Modifier,
+    leadingIcon: ImageVector,
+    leadingIconDescription: String,
     title: String,
     actions: List<ExplorerAction> = listOf(),
     backgroundColor: Color,
@@ -133,6 +138,11 @@ private fun ExplorerActionsBar(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(4.dp)
     ) {
+        Icon(
+            modifier = Modifier.size(40.dp).padding(8.dp),
+            imageVector = leadingIcon,
+            contentDescription = leadingIconDescription
+        )
         Text(
             modifier = Modifier.weight(1f).padding(8.dp),
             text = title,

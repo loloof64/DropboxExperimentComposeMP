@@ -31,4 +31,6 @@
     <string name="not_available">Not yet available</string>
     <string name="local_filesystem">Local files</string>
     <string name="dropbox_filesystem">Dropbox</string>
+    <string name="local_filesystem_icon">Local files icon</string>
+    <string name="dropbox_filesystem_icon">Dropbox icon</string>
 </resources>
