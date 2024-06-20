@@ -13,6 +13,7 @@ import kotlinx.coroutines.withContext
 import models.FileItem
 import models.sort
 import okio.FileSystem
+import okio.IOException
 import okio.Path.Companion.toPath
 import ui.states.CommanderState
 import ui.states.FileExplorerState
@@ -58,6 +59,32 @@ class CommanderScreenModel : ScreenModel {
             else -> {}
         }
     }
+
+    fun enterLocalSubdirectory(directoryName: String) {
+        when (val localExplorerState = _uiState.value.localExplorerState) {
+            is FileExplorerState.Ready -> {
+                val currentPathStr = localExplorerState.currentPath
+                val currentPath = currentPathStr.toPath()
+                val newPath = currentPath.resolve(directoryName)
+                val newPathStr = FileSystem.SYSTEM.canonicalize(newPath).toString()
+
+                screenModelScope.launch {
+                    try {
+                        updateLocalExplorerItems(newPathStr)
+                        _uiState.update { commanderState ->
+                            commanderState.copy(localExplorerState = localExplorerState.copy(currentPath = newPathStr))
+                        }
+                    } catch (ex: IOException) {
+                        println("Could not change directory to $directoryName")
+                        println(ex.localizedMessage)
+                    }
+                }
+            }
+
+            else -> {}
+        }
+    }
+
 
     private suspend fun updateLocalExplorerItems(newPath: String) {
         when (val localExplorerState = _uiState.value.localExplorerState) {

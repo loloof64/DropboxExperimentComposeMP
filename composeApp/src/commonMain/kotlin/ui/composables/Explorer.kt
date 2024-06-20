@@ -33,7 +33,7 @@ fun NotAvailable(
     modifier: Modifier = Modifier
 ) {
     Column(
-        modifier = modifier.fillMaxSize(),
+        modifier = modifier.fillMaxSize(0.8f),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
@@ -117,7 +117,7 @@ fun ExplorerBar(
     Text(
         modifier = modifier.fillMaxWidth().background(color = Color.Green.copy(alpha = 0.4f)).horizontalScroll(
             rememberScrollState()
-        ),
+        ).padding(8.dp),
         text = path,
         fontSize = fontSize,
         overflow = TextOverflow.Visible,

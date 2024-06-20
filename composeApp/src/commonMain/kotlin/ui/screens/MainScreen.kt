@@ -1,6 +1,5 @@
 package ui.screens
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
@@ -20,6 +19,7 @@ import dropboxexperiment.composeapp.generated.resources.Res
 import dropboxexperiment.composeapp.generated.resources.dropbox_filesystem
 import dropboxexperiment.composeapp.generated.resources.local_filesystem
 import dropboxexperiment.composeapp.generated.resources.reload
+import models.FileItem
 import org.jetbrains.compose.resources.stringResource
 import ui.composables.FileExplorer
 import ui.composables.Loading
@@ -41,9 +41,11 @@ class MainScreen : Screen {
             Row {
                 LocalExplorer(
                     modifier = Modifier.fillMaxWidth(0.5f).fillMaxHeight(),
+                    screenModel = screenModel,
                     localExplorerState = state.value.localExplorerState
                 ) {
                     ExplorerActionsBar(
+                        modifier = Modifier.height(45.dp),
                         title = stringResource(Res.string.local_filesystem),
                         backgroundColor = MaterialTheme.colors.primary,
                         textColor = MaterialTheme.colors.onPrimary,
@@ -61,6 +63,7 @@ class MainScreen : Screen {
                     dropboxExplorerState = state.value.dropBoxExplorerState
                 ) {
                     ExplorerActionsBar(
+                        modifier = Modifier.height(45.dp),
                         title = stringResource(Res.string.dropbox_filesystem),
                         backgroundColor = MaterialTheme.colors.secondary,
                         textColor = MaterialTheme.colors.onSecondary
@@ -75,9 +78,15 @@ class MainScreen : Screen {
 private fun LocalExplorer(
     modifier: Modifier = Modifier,
     localExplorerState: FileExplorerState,
+    screenModel: CommanderScreenModel,
     ActionsBar: @Composable () -> Unit = {},
 ) {
-    Column(modifier = modifier) {
+    fun onItemSelected(item: FileItem) {
+        if (!item.isFolder) return
+        screenModel.enterLocalSubdirectory(item.name)
+    }
+
+    Column(modifier = modifier, verticalArrangement = Arrangement.Top) {
         ActionsBar()
         when (localExplorerState) {
             is FileExplorerState.NotAvailable -> NotAvailable(modifier = modifier)
@@ -85,6 +94,7 @@ private fun LocalExplorer(
             is FileExplorerState.Ready -> FileExplorer(
                 items = localExplorerState.items,
                 currentPath = localExplorerState.currentPath,
+                onItemSelected = ::onItemSelected,
             )
         }
     }
@@ -96,7 +106,7 @@ private fun DropboxExplorer(
     dropboxExplorerState: FileExplorerState,
     ActionsBar: @Composable () -> Unit = {},
 ) {
-    Column(modifier = modifier) {
+    Column(modifier = modifier, verticalArrangement = Arrangement.Top) {
         ActionsBar()
         when (dropboxExplorerState) {
             is FileExplorerState.NotAvailable -> NotAvailable(modifier = modifier)
@@ -119,12 +129,12 @@ private fun ExplorerActionsBar(
 ) {
 
     Row(
-        modifier = Modifier.fillMaxWidth().background(backgroundColor).padding(4.dp),
+        modifier = modifier.fillMaxWidth().background(backgroundColor),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(4.dp)
     ) {
         Text(
-            modifier = Modifier.weight(1f),
+            modifier = Modifier.weight(1f).padding(8.dp),
             text = title,
             fontWeight = FontWeight.Bold,
             color = textColor
