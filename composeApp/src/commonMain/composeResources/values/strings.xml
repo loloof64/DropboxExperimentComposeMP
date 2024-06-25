@@ -33,4 +33,6 @@
     <string name="dropbox_filesystem">Dropbox</string>
     <string name="local_filesystem_icon">Local files icon</string>
     <string name="dropbox_filesystem_icon">Dropbox icon</string>
+    <string name="login_dropbox">Login Dropbox</string>
+    <string name="logout_dropbox">Logout Dropbox</string>
 </resources>

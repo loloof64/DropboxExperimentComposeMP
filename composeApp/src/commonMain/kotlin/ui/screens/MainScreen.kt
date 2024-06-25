@@ -1,6 +1,8 @@
 package ui.screens
 
 import Dropbox
+import Login
+import Logout
 import Pc
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -36,6 +38,14 @@ class MainScreen : Screen {
             screenModel.updateLocalExplorerItemsForCurrentPath()
         }
 
+        fun loginDropBox() {
+
+        }
+
+        fun logoutDropBox() {
+
+        }
+
         Scaffold(modifier = Modifier.fillMaxSize()) {
             Row {
                 LocalExplorer(
@@ -69,7 +79,22 @@ class MainScreen : Screen {
                         leadingIconDescription = stringResource(Res.string.dropbox_filesystem_icon),
                         title = stringResource(Res.string.dropbox_filesystem),
                         backgroundColor = MaterialTheme.colors.secondary,
-                        textColor = MaterialTheme.colors.onSecondary
+                        textColor = MaterialTheme.colors.onSecondary,
+                        actions = listOf(
+                            if (state.value.dropBoxAccount == null) {
+                                ExplorerAction(
+                                    image = Login,
+                                    description = stringResource(Res.string.login_dropbox),
+                                    callback = ::loginDropBox
+                                )
+                            } else {
+                                ExplorerAction(
+                                    image = Logout,
+                                    description = stringResource(Res.string.logout_dropbox),
+                                    callback = ::logoutDropBox,
+                                )
+                            }
+                        )
                     )
                 }
             }

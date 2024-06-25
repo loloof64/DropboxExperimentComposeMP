@@ -17,6 +17,9 @@ voyager = "1.0.0"
 okio = "3.2.0"
 coroutines-ui = "1.8.1"
 splitties = "3.0.0"
+dropboxApi = "7.0.0"
+kaml = "0.26.0"
+kotlinx-serialization-yaml = "1.7.0"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -35,6 +38,10 @@ okio = {group = "com.squareup.okio", name ="okio", version.ref = "okio"}
 coroutines-swing = {group = "org.jetbrains.kotlinx", name="kotlinx-coroutines-swing", version.ref="coroutines-ui"}
 coroutines-android = {group = "org.jetbrains.kotlinx", name="kotlinx-coroutines-android", version.ref="coroutines-ui"}
 splitties-app-ctx = {group ="com.louiscad.splitties", name="splitties-appctx", version.ref="splitties"}
+dropbox-core = {group = "com.dropbox.core", name="dropbox-core-sdk", version.ref="dropboxApi"}
+dropbox-android = {group = "com.dropbox.core", name="dropbox-android-sdk", version.ref="dropboxApi"}
+kotlinx-serialization-yaml = {group = "org.jetbrains.kotlinx", name="kotlinx-serialization-yaml", version.ref="kotlinx-serialization-yaml"}
+kaml = {group = "com.charleskorn.kaml", name="kaml", version.ref="kaml"}
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
@@ -42,3 +49,4 @@ androidLibrary = { id = "com.android.library", version.ref = "agp" }
 jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "compose-plugin" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }

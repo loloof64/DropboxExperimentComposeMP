@@ -22,7 +22,8 @@ class CommanderScreenModel : ScreenModel {
     private val _uiState: MutableStateFlow<CommanderState> = MutableStateFlow(
         CommanderState(
             localExplorerState = FileExplorerState.Loading,
-            dropBoxExplorerState = FileExplorerState.NotAvailable
+            dropBoxExplorerState = FileExplorerState.NotAvailable,
+            dropBoxAccount = null
         )
     )
     var uiState = _uiState.asStateFlow()

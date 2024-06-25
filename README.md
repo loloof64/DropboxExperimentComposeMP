@@ -16,3 +16,5 @@ Some images have been downloaded from [SvgRepo](https://www.svgrepo.com) and con
 * extract => https://www.svgrepo.com/svg/218163/extract
 * pc => https://www.svgrepo.com/svg/491931/tech-color-desktop
 * dropbox => https://www.svgrepo.com/svg/475645/dropbox-color
+* logout => https://www.svgrepo.com/svg/520828/logout
+* login => https://www.svgrepo.com/svg/308695/login-cybersecurity-computer

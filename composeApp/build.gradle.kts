@@ -7,6 +7,7 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 kotlin {
@@ -27,6 +28,7 @@ kotlin {
             implementation(libs.androidx.activity.compose)
             implementation(libs.coroutines.android)
             implementation(libs.splitties.app.ctx)
+            implementation(libs.dropbox.android)
         }
         commonMain.dependencies {
             implementation(compose.runtime)
@@ -38,10 +40,13 @@ kotlin {
             implementation(libs.voyager.navigator)
             implementation(libs.voyager.screen.model)
             implementation(libs.okio)
+            implementation(libs.dropbox.core)
+            implementation(libs.kotlinx.serialization.yaml)
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
             implementation(libs.coroutines.swing)
+            implementation(libs.kaml)
         }
     }
 }
